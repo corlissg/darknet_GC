@@ -1378,7 +1378,7 @@ extern "C" void cv_draw_object(image sized, float *truth_cpu, int max_boxes, int
     int cl_trackbar_value = 0;
     std::string const cl_trackbar_name = "class_id";
 	// GC mod: warning: unused variable ‘cl_tb_res’
-    i// nt cl_tb_res = cv::createTrackbar(cl_trackbar_name, window_name, &cl_trackbar_value, classes-1);
+    // int cl_tb_res = cv::createTrackbar(cl_trackbar_name, window_name, &cl_trackbar_value, classes-1);
 
     std::string const bo_trackbar_name = "box-only";
     // GC mod: warning: unused variable ‘bo_tb_res’
