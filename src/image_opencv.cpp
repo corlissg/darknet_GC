@@ -907,13 +907,15 @@ extern "C" void draw_detections_cv_v3(mat_cv* mat, detection *dets, int num, flo
                 float red = get_color(2, offset, classes);
                 float green = get_color(1, offset, classes);
                 float blue = get_color(0, offset, classes);
-                float rgb[3];
+				// GC mod: warning: variable ‘rgb’ set but not used
+                // float rgb[3];
+				float rgb[3] = [ red, green, blue ];
 
                 //width = prob*20+2;
 
-                rgb[0] = red;
-                rgb[1] = green;
-                rgb[2] = blue;
+                // rgb[0] = red;
+                // rgb[1] = green;
+                // rgb[2] = blue;
                 box b = dets[i].bbox;
                 if (std::isnan(b.w) || std::isinf(b.w)) b.w = 0.5;
                 if (std::isnan(b.h) || std::isinf(b.h)) b.h = 0.5;
@@ -1388,7 +1390,8 @@ extern "C" void cv_draw_object(image sized, float *truth_cpu, int max_boxes, int
         if (pressed_key == 27 || pressed_key == 1048603) break;// break;  // ESC - save & exit
 
         frame_clone = frame.clone();
-        char buff[100];
+        // GC mod: warning: unused variable ‘buff’
+        // char buff[100];
         std::string lr_value = "learning_rate = " + std::to_string(1.0 / pow(2, lr_trackbar_value));
         cv::putText(frame_clone, lr_value, cv::Point2i(10, 20), cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(10, 50, 10), 3);
         cv::putText(frame_clone, lr_value, cv::Point2i(10, 20), cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(20, 120, 60), 2);
