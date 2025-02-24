@@ -221,7 +221,9 @@ void cudnn_check_error_extended(cudnnStatus_t status, const char *file, int line
 #endif
     if (cuda_debug_sync) {
         cudaError_t status = cudaDeviceSynchronize();
-        if (status != CUDNN_STATUS_SUCCESS)
+		// GC mod: warning: comparison between ‘cudaError_t’ {aka ‘enum cudaError’} and ‘enum <anonymous>’
+        // if (status != CUDNN_STATUS_SUCCESS)
+		if ( status != cudnnStatus_t(CUDNN_STATUS_SUCCESS) )
             printf("\n cudaError_t status = cudaDeviceSynchronize() Error in: file: %s() : line: %d : build time: %s \n", file, line, date_time);
     }
     cudnn_check_error(status);
