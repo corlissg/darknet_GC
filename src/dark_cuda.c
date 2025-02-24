@@ -336,7 +336,7 @@ float *cuda_make_array_pinned_preallocated(float *x, size_t n)
         else {
 			// GC mod:  warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘size_t’ {aka ‘long unsigned int’}
 			// printf("Try to allocate new pinned BLOCK, size = %d MB \n", size / (1024 * 1024));
-            printf("Try to allocate new pinned BLOCK, size = %ulMB \n", size / (1024 * 1024));
+            printf("Try to allocate new pinned BLOCK, size = %luMB \n", size / (1024 * 1024));
             pinned_num_of_blocks++;
             pinned_block_id = pinned_num_of_blocks - 1;
             pinned_index = 0;
