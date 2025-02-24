@@ -275,7 +275,8 @@ void pre_allocate_pinned_memory(const size_t size)
         pinned_ptr = (float **)calloc(num_of_blocks, sizeof(float *));
         if(!pinned_ptr) error("calloc failed in pre_allocate() \n");
 
-        printf("pre_allocate: size = %Iu MB, num_of_blocks = %Iu, block_size = %Iu MB \n",
+        // GC mod: warning: format ‘%u’ expects argument of type ‘unsigned int’, but argument 2 has type ‘size_t’ {aka ‘long unsigned int’}
+        printf("pre_allocate: size = %Ilu MB, num_of_blocks = %Iu, block_size = %Iu MB \n",
             size / (1024*1024), num_of_blocks, pinned_block_size / (1024 * 1024));
 
         int k;
