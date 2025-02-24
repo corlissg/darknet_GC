@@ -126,7 +126,11 @@ using socket_t = SOCKET;
 #include <unistd.h>
 
 using socket_t = int;
+// GC mod:  warning: "INVALID_SOCKET" redefined
+// #define INVALID_SOCKET (-1)
+#ifndef INVALID_SOCKET
 #define INVALID_SOCKET (-1)
+#endif  // INVALID_SOCKET
 #endif //_WIN32
 
 #include <array>

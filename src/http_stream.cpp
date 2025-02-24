@@ -247,7 +247,9 @@ public:
                     "\r\n", 0);
                 _write(client, "[\n", 0);   // open JSON array
                 int n = _write(client, outputbuf, outlen);
+				// GC mod: warning: unused variable ‘n’
                 cerr << "JSON_sender: new client " << client << endl;
+				cerr << "             n = " << n << endl;
             }
             else // existing client, just stream pix
             {
@@ -504,7 +506,9 @@ public:
                 }
 
                 char head[400];
-                sprintf(head, "--mjpegstream\r\nContent-Type: image/jpeg\r\nContent-Length: %zu\r\n\r\n", outlen);
+				// GC mod: warning: format ‘%zu’ expects argument of type ‘size_t’, but argument 3 has type ‘int’
+                // sprintf(head, "--mjpegstream\r\nContent-Type: image/jpeg\r\nContent-Length: %zu\r\n\r\n", outlen);
+				sprintf(head, "--mjpegstream\r\nContent-Type: image/jpeg\r\nContent-Length: %zu\r\n\r\n", size_t(outlen));
                 _write(s, head, 0);
                 int n = _write(s, (char*)(&outbuf[0]), outlen);
                 cerr << "known client: " << s << ", sent = " << n << ", must be sent outlen = " << outlen << endl;
