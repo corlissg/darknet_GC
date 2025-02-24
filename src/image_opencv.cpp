@@ -909,7 +909,7 @@ extern "C" void draw_detections_cv_v3(mat_cv* mat, detection *dets, int num, flo
                 float blue = get_color(0, offset, classes);
 				// GC mod: warning: variable ‘rgb’ set but not used
                 // float rgb[3];
-				float rgb[3] = [ red, green, blue ];
+				float rgb[3] = { red, green, blue };
 
                 //width = prob*20+2;
 
