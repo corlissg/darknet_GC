@@ -908,8 +908,9 @@ extern "C" void draw_detections_cv_v3(mat_cv* mat, detection *dets, int num, flo
                 float green = get_color(1, offset, classes);
                 float blue = get_color(0, offset, classes);
 				// GC mod: warning: variable ‘rgb’ set but not used
+				// GC mod: warning: unused variable ‘rgb’
                 // float rgb[3];
-				float rgb[3] = { red, green, blue };
+				// float rgb[3] = { red, green, blue };
 
                 //width = prob*20+2;
 
@@ -1366,18 +1367,22 @@ extern "C" void cv_draw_object(image sized, float *truth_cpu, int max_boxes, int
 
     int it_trackbar_value = 200;
     std::string const it_trackbar_name = "iterations";
-    int it_tb_res = cv::createTrackbar(it_trackbar_name, window_name, &it_trackbar_value, 1000);
+	// GC mod: warning: unused variable ‘it_tb_res’
+    // int it_tb_res = cv::createTrackbar(it_trackbar_name, window_name, &it_trackbar_value, 1000);
 
     int lr_trackbar_value = 10;
     std::string const lr_trackbar_name = "learning_rate exp";
-    int lr_tb_res = cv::createTrackbar(lr_trackbar_name, window_name, &lr_trackbar_value, 20);
+	// GC mod: warning: unused variable ‘lr_tb_res’
+    // int lr_tb_res = cv::createTrackbar(lr_trackbar_name, window_name, &lr_trackbar_value, 20);
 
     int cl_trackbar_value = 0;
     std::string const cl_trackbar_name = "class_id";
-    int cl_tb_res = cv::createTrackbar(cl_trackbar_name, window_name, &cl_trackbar_value, classes-1);
+	// GC mod: warning: unused variable ‘cl_tb_res’
+    i// nt cl_tb_res = cv::createTrackbar(cl_trackbar_name, window_name, &cl_trackbar_value, classes-1);
 
     std::string const bo_trackbar_name = "box-only";
-    int bo_tb_res = cv::createTrackbar(bo_trackbar_name, window_name, boxonly, 1);
+    // GC mod: warning: unused variable ‘bo_tb_res’
+    // int bo_tb_res = cv::createTrackbar(bo_trackbar_name, window_name, boxonly, 1);
 
     int i = 0;
 
